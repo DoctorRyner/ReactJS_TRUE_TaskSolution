@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Container } from './Container';
-
 export class ContainerAdder extends React.Component {
     del() { this.setState({ enable: false }) }
     add() {

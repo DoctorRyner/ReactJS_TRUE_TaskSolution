@@ -3,14 +3,12 @@ import { render } from 'react-dom'
 
 import { Header } from './Header'
 import { Container } from './Container'
-import { setTimeout } from 'timers';
 
 class Main extends React.Component {
     sayToLoadFromServer() { this.child.getJsonFrom('https://raw.githubusercontent.com/asakasinsky/russia.json/master/json/russia.subjects.json') }
     sayToRemoveAllElements() { this.child.removeAllElements() }
     sayToSaveToLocalStorage() { this.child.saveToLocalStorage() }
     sayToLoadFromLocalStorage() { this.child.loadFromLocalStorage() }
-    //sayToZeroOutLocalStorage() { this.child.zeroOutLocalStorage() }
     constructor() {
         super()
         this.header = <Header
@@ -18,7 +16,6 @@ class Main extends React.Component {
             sendRemoveAllElements={this.sayToRemoveAllElements.bind(this)}
             sendSaveToLocalStorage={this.sayToSaveToLocalStorage.bind(this)}
             sendLoadFromLocalStorage={this.sayToLoadFromLocalStorage.bind(this)}
-            //sendZeroOutLocalStorage={this.sayToZeroOutLocalStorage.bind(this)}
         />
         this.container = <Container onRef={ref => (this.child = ref)}/>
     }

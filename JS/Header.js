@@ -5,7 +5,6 @@ export class Header extends React.Component {
     removeAllElements() { this.props.sendRemoveAllElements() }
     saveToLocalStorage() { this.props.sendSaveToLocalStorage() }
     loadFromLocalStorage() { this.props.sendLoadFromLocalStorage() }
-    //zeroOutLocalStorage() { this.props.sendZeroOutLocalStorage() }
     constructor() {
         super()
         this.id = Header.id++
