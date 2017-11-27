@@ -33,17 +33,6 @@ export class Container extends React.Component {
             newElements.push(newEl)
         }
         this.setState({ elements: newElements })
-
-        /*
-        const val1 = gottenVal1
-        const val2 = gottenVal2
-        const newEl = <ContainerElement onRef={ref => (this.childs.push(ref))} val1={val1} val2={val2} key={Container.keyAmount++}/>
-        this.state.elements.push(newEl)
-        const newElements = this.state.elements.slice()
-        this.setState({
-            elements: newElements,
-        })
-        */
     }
 
     getJsonFrom(pathToJson) {
@@ -66,17 +55,13 @@ export class Container extends React.Component {
         const newElements = this.state.elements.slice()
         const newEl = <ContainerElement onRef={ref => (this.childs.push(ref))} val1={val1} val2={val2} key={Container.keyAmount++}/>
         newElements.push(newEl)
-        this.setState({
-            elements: newElements,
-        })
+        this.setState({ elements: newElements })
     }
 
     removeAllElements() {
         const val1 = 'exit'
         const val2 = '0'
-        for(let element of this.childs) {
-            if(element) element.setState({ enable: false })
-        }
+        for(let element of this.childs) if(element) element.setState({ enable: false })
         this.childs = []
     }
 
@@ -92,10 +77,7 @@ export class Container extends React.Component {
                 regioncode: val2
             })
         }
-        this.setState({
-            forRender: true,
-            //json: newJson
-        })
+        this.setState({ forRender: true })
     }
 
     constructor() {
@@ -108,7 +90,6 @@ export class Container extends React.Component {
                 backgroundColor: '#bed2d7',
                 minHeight: '100%',
                 width: '100%',
-                //overflow: 'hidden'
             },
             forRender: true,
             elements: [],

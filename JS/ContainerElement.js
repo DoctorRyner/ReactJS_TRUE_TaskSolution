@@ -8,14 +8,16 @@ export class ContainerElement extends React.Component {
 
     setVal() {
         document.getElementById(ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix1).value = this.state.val1
-        document.getElementById(ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix2).value = this.state.val2
-        
+        document.getElementById(ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix2).value = this.state.val2 
     }
+
     edit() {
         this.setState({ isEditMode: true })
         setTimeout(this.setVal.bind(this), 10)
     }
+
     cancel() { this.setState({ isEditMode: false }) }
+
     save() {
         if(
             !document.getElementById(ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix1).value
@@ -83,14 +85,6 @@ export class ContainerElement extends React.Component {
                 marginLeft: '1%'
             }
         }
-        this.input1 = <input
-            id={ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix1}
-            style={this.state.styleElement1Input}>
-        </input>
-        this.input2 = <input
-            id={ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix2}
-            style={this.state.styleElement2Input}>
-        </input>
     }
     render() {
         if(!this.state.enable) return ''
@@ -102,8 +96,8 @@ export class ContainerElement extends React.Component {
             </div>
         } else {
             this.toRender = <div style={{display: 'inline'}}>
-                {this.input1}
-                {this.input2}
+                <input id={ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix1} style={this.state.styleElement1Input}></input>
+                <input id={ContainerElement.idPrefix + this.id + ContainerElement.inputPostfix2} style={this.state.styleElement2Input}></input>
                 <button style={this.state.styleElement3} onClick={this.save.bind(this)}>Сохранить</button>
                 <button style={this.state.styleElement3} onClick={this.cancel.bind(this)}>Отменить</button>
             </div>

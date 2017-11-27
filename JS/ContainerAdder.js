@@ -46,9 +46,6 @@ export class ContainerAdder extends React.Component {
             }
         }
     }
-    sendCall() {
-        this.props.call()
-    }
     render() {
         if(!this.state.enable) return ''
         return(
